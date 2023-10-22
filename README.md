@@ -1,5 +1,5 @@
 # TENDY-icrc1
-speciak thanks to sneed ICRC1 Token, and J, T, I, Mr. M, 🌻, L, icchads etc
+speciak thanks to sneed ICRC1 Token, and B, J, T, C, I, A, Mr. M, 🌻, L, icchads etc
 
 this is tne attempt at using voic to copy transaction etc. from tendy dip20
 
