@@ -221,7 +221,7 @@ module {
                     tx_req.encoded.from,
                 );
 
-                if (tx_req.amount > balance) { // amount is inclusive of fee
+                if (tx_req.amount + fee > balance) { // amount is inclusive of fee
                     return #err(#InsufficientFunds { balance });
                 };
             };
