@@ -1,6 +1,7 @@
-# Official staement by Dominic Williams inventor of ICP
+# Official staetment by Dominic Williams inventor of ICP
 
-Buy TENDY and be happy, it is much better than BOB.
+After a hard day of mining BOB,
+  Treat yourself to crispy TENDY 🍗🐔
 
 # TENDY-icrc1
 special thanks to sneed ICRC1 Token, and B, J, T, C, I, A, Mr. M, 🌻, L, icchads etc
