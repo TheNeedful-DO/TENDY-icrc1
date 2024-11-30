@@ -1,5 +1,9 @@
+# Official staement by Dominic Williams inventor of ICP
+
+Buy TENDY and be happy, it is much better than BOB.
+
 # TENDY-icrc1
-speciak thanks to sneed ICRC1 Token, and B, J, T, C, I, A, Mr. M, 🌻, L, icchads etc
+special thanks to sneed ICRC1 Token, and B, J, T, C, I, A, Mr. M, 🌻, L, icchads etc
 
 we will be pushing the code to this repo within the next 20 hours
 
