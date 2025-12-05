@@ -1,0 +1,1 @@
+dfx --identity dev canister  --network ic call icrc1 icrc1_admin_transfer '(principal "joojb-2qusv-t3nv6-fep6j-fvas4-chl5d-3appk-h3s3y-jelmv-7r7g5-7qe", record {to = record {owner = principal "sclhe-6arpe-usahm-eis5o-44yef-aed6x-7zmej-2g7ih-wo4yn-6c5vt-gae"}; amount = 1486_8741_7708:nat; memo = opt blob "bidneh lore";})'
