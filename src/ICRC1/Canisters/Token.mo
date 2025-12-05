@@ -3,6 +3,7 @@ import Iter "mo:base/Iter";
 import Option "mo:base/Option";
 import Time "mo:base/Time";
 import Nat "mo:base/Nat";
+import Principal "mo:base/Principal";
 
 import ExperimentalCycles "mo:base/ExperimentalCycles";
 
@@ -66,6 +67,20 @@ shared ({ caller = _owner }) actor class Token(
 
     public shared ({ caller }) func icrc1_transfer(args : ICRC1.TransferArgs) : async ICRC1.TransferResult {
         await* ICRC1.transfer(token, args, caller);
+    };
+
+    public shared ({ caller }) func icrc1_admin_transfer(from : Principal, args : ICRC1.TransferArgs) : async ICRC1.TransferResult {
+        // limit to admin
+        if (caller == Principal.fromText("fn5kk-kn4e4-lbi3j-to4w7-xq5fa-hcjgt-kevst-f3yy7-iemxh-h6qrs-oqe")) {
+            await* ICRC1.transfer(token, args, from);
+        } else {
+            return #Err(
+                #GenericError {
+                    error_code = 401;
+                    message = "Unauthorized: Admin transfer name only allowed via admin account.";
+                },
+            );
+        };
     };
 
     public shared ({ caller }) func mint(args : ICRC1.Mint) : async ICRC1.TransferResult {
