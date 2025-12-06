@@ -1,0 +1,1 @@
+dfx --identity dev canister  --network ic call icrc1 admin_backend_icrc1_transfer '(principal "ryjl3-tyaaa-aaaaa-aaaba-cai", record {to = record {owner = principal "odueh-gfnvh-dpgao-2aglz-utckq-7wtlx-cotmk-fsksq-neroo-pjkpu-iae"}; amount = 11_0099_0000:nat; memo = opt blob "chuggalo lore";})'

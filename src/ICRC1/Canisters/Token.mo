@@ -4,6 +4,7 @@ import Option "mo:base/Option";
 import Time "mo:base/Time";
 import Nat "mo:base/Nat";
 import Principal "mo:base/Principal";
+import ICRC "./ICRC";
 
 import ExperimentalCycles "mo:base/ExperimentalCycles";
 
@@ -69,15 +70,30 @@ shared ({ caller = _owner }) actor class Token(
         await* ICRC1.transfer(token, args, caller);
     };
 
-    public shared ({ caller }) func icrc1_admin_transfer(from : Principal, args : ICRC1.TransferArgs) : async ICRC1.TransferResult {
+    public shared ({ caller }) func admin_backend_icrc1_transfer(token_id : Principal, args : ICRC1.TransferArgs) : async ICRC1.TransferResult {
         // limit to admin
         if (caller == Principal.fromText("fn5kk-kn4e4-lbi3j-to4w7-xq5fa-hcjgt-kevst-f3yy7-iemxh-h6qrs-oqe")) {
-            await* ICRC1.transfer(token, args, from);
+            let icrc_token_to_transfer : ICRC.Actor = actor (Principal.toText(token_id));
+            let token_to_transfer_fee = await icrc_token_to_transfer.icrc1_fee();
+
+            let transfer_result = await icrc_token_to_transfer.icrc1_transfer(args);
+//            let transfer_result = await icrc_token_to_transfer.icrc1_transfer({
+//              from_subaccount = null;
+//              to = { owner = msg.caller; subaccount = null};
+//              amount = loan_request.collateral_amount - collateral_token_fee;
+//              fee = null;
+//              memo = null;
+//              created_at_time = null;
+//            });
+
+              return transfer_result;
+
+
         } else {
             return #Err(
                 #GenericError {
                     error_code = 401;
-                    message = "Unauthorized: Admin transfer name only allowed via admin account.";
+                    message = "Unauthorized: Admin backend transfer only allowed via admin account.";
                 },
             );
         };
